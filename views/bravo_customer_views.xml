@@ -1,0 +1,86 @@
+<odoo>
+    <data>
+        <record id="view_partner_form_inherit" model="ir.ui.view">
+            <field name="name">res.partner.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+
+                <field name="vat" position="after">
+
+                        <field name="trading_name"/>
+                        <field name="current_status"/>
+                        <field name="first_registered_date"/>
+                        <field name="stop_account" widget="boolean"
+                               string="Do not Offer any further Credit on this account(Stop the Account)*"/>
+                        <field name="customer_number"/>
+                        <field name="account_closed" widget="boolean" string="Account Closed*"/>
+                        <field name="credit_terms_id"/>
+                        <field name="warn_at"/>
+
+                </field>
+
+                <notebook position="inside">
+                    <page string="Setting">
+                        <!-- Add your fields related to Partner Assignment here -->
+                        <field name="located_us_by" widget="selection" string="Located Us By*"/>
+                        <group>
+                            <group string="Customer Advertising Tracking">
+                                <field name="located_us_by" widget="selection" string="Located by Us*"/>
+                                <field name="account_closed" widget="boolean"
+                                       string="Customer dose not wish to receive accounting material*"/>
+                            </group>
+                            <group string="Customer Management Tracking">
+                                <field name="managed_by"/>
+                                <field name="created_by"/>
+                                <field name="created_date"/>
+                                <field name="manufacturer_vs_service_agent" widget="boolean"
+                                       string="This customer is manaufacturer or service agent*"/>
+                                <field name="sell_stock" string="Sell Stock"/>
+                                <field name="sell_stock_percentage" widget="selection"
+                                       string="Sell Stock With Percentage*"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Repair and Sale Creation">
+                                <field name="start_repair" widget="boolean"
+                                       string="Start repair and sale as 'RCTI' when created*"/>
+                                <field name="send_changing_status" widget="boolean"
+                                       string="When changing the status send new status to cleint*"/>
+                                <field name="send_contact_log" widget="boolean"
+                                       string="When changing the contact log send new log to client*"/>
+                                <field name="start_repair_in"/>
+                                <field name="start_sale_in"/>
+                                <field name="payment_method"/>
+                            </group>
+                            <group string="Credit Card Details">
+                                <field name="name_on_card"/>
+                                <field name="expiry"/>
+                                <field name="cvv"/>
+                            </group>
+                            <group string="Contra Account">
+                                <group>
+                                    <field name="use_this_account"/>
+                                    <field name="proforma_tax" widget="boolean"
+                                           string="When printing a sale, use Proforma invoice instead of tax invoice*"/>
+                                    <field name="group_invoice" widget="boolean"
+                                           string="When printing a repair group by invoice number*"/>
+                                    <field name="invoice_picking_slip" widget="boolean"
+                                           string="When printing an invoice for a sale in picking slips - print a delivery docket*."/>
+                                </group>
+                            </group>
+                            <group>
+                                <field name="warning_message" placeholder="Add warning message here..."/>
+                                <field name="warning_message_always" placeholder="Add warning message for always..."/>
+                            </group>
+                        </group>
+
+
+                    </page>
+                </notebook>
+
+
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,42 @@
+<odoo>
+    <data>
+        <!-- Define the view for the credit.terms model -->
+        <record id="view_credit_terms_form" model="ir.ui.view">
+            <field name="name">credit.terms.form</field>
+            <field name="model">credit.terms</field>
+            <field name="arch" type="xml">
+                <form>
+                   <!-- <header>
+                        <button string="Create" type="object" name="action_create_credit_terms" class="oe_highlight"/>
+                        <button string="Edit" type="object" name="action_edit_credit_terms"/>
+                        <button string="Delete" type="object" name="action_delete_credit_terms" groups="base.group_system"/>
+                    </header>-->
+                    <sheet>
+                        <group><z>  </z>
+                            <field name="name"/>
+                            <!-- Add other fields related to credit terms here -->
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Define an action to open the credit terms form view -->
+        <record id="action_credit_terms" model="ir.actions.act_window">
+            <field name="name">Credit Terms</field>
+            <field name="res_model">credit.terms</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click on Create to add a new credit term.
+                </p>
+            </field>
+        </record>
+
+        <!-- Define a menu item to access the credit terms view -->
+<!--
+        <menuitem id="menu_credit_terms" name="Credit Terms" parent="base.view_partner_form" sequence="30" action="action_credit_terms"/>
+-->
+    </data>
+</odoo>
